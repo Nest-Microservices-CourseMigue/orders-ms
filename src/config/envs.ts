@@ -6,6 +6,8 @@ interface EnvVars {
     POSTGRES_USER: string;
     POSTGRES_PASSWORD: string;
     POSTGRES_DB: string;
+    PRODUCTS_MICROSERVICE_HOST: string;
+    PRODUCTS_MICROSERVICE_PORT: number;
 }
 
 const envsSchema = joi.object({
@@ -13,6 +15,8 @@ const envsSchema = joi.object({
     POSTGRES_USER: joi.string().required(),
     POSTGRES_PASSWORD: joi.string().required(),
     POSTGRES_DB: joi.string().required(),
+    PRODUCTS_MICROSERVICE_HOST: joi.string().required(),
+    PRODUCTS_MICROSERVICE_PORT: joi.number().required(),
 })
 .unknown(true);
 
@@ -29,5 +33,7 @@ export const envs = {
     postgresUser: envVars.POSTGRES_USER,
     postgresPassword: envVars.POSTGRES_PASSWORD,
     postgresDb: envVars.POSTGRES_DB,
+    productsMicroserviceHost: envVars.PRODUCTS_MICROSERVICE_HOST,
+    productsMicroservicePort: envVars.PRODUCTS_MICROSERVICE_PORT,
 }
 
